@@ -1,4 +1,5 @@
--   xzy-parent：
--   xzy-common：公共的工具类、枚举、常量等
+-   xzy-parent：依赖管理
+-   xzy-common：公共组件，例如枚举、常量、工具类
 -   xzy-boot：
 -   xzy-mvc：
+    -   xzy-mvc-demo1：解决 Request 无法重复读取问题

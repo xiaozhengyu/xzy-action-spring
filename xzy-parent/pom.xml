@@ -62,11 +62,6 @@
                 <artifactId>xzy-common</artifactId>
                 <version>${xzy-common.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.xzy.action.spring</groupId>
-                <artifactId>xzy-mvc-api</artifactId>
-                <version>${xzy-mvc-api.version}</version>
-            </dependency>
             <!-- 其他依赖 -->
             <dependency>
                 <groupId>com.alibaba.fastjson2</groupId>

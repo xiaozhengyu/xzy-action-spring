@@ -4,32 +4,38 @@
          xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     
+    <!-- 项目基础信息 -->
+    <artifactId>xzy-mvc-demo1</artifactId>
+    <packaging>jar</packaging>
+    <name>xzy-mvc-demo1</name>
+    <description>解决Request无法重复读取问题</description>
+    
+    <!-- 父POM -->
     <parent>
         <groupId>com.xzy.action.spring</groupId>
-        <artifactId>xzy-mvc</artifactId>
+        <artifactId>xzy-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     
-    <artifactId>xzy-mvc-provider</artifactId>
-    
+    <!-- 项目属性 -->
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
     
+    <!-- 依赖管理 -->
     <dependencies>
-        <!-- xzy -->
-        
         <dependency>
             <groupId>com.xzy.action.spring</groupId>
-            <artifactId>xzy-mvc-api</artifactId>
+            <artifactId>xzy-common</artifactId>
         </dependency>
-        
-        <!-- other -->
-        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
     </dependencies>
     
     <build>
-        <finalName>xzy-mvc-provider</finalName>
+        <finalName>xzy-mvc-demo1</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -37,4 +43,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
