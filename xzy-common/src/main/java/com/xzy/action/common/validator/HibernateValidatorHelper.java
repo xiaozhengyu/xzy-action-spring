@@ -42,11 +42,14 @@ public class HibernateValidatorHelper {
         if (value == null) {
             return;
         }
+
+        // 基于注解的参数校验
         Collection<ConstraintViolation<V>> constraintViolations = parseConstraintViolation(value);
         if (CollectionUtils.isNotEmpty(constraintViolations)) {
             doVerify(constraintViolations, value);
         }
-        // 个性的参数校验
+
+        // 基于自定义‘verify’方法的参数校验
         Method method = ReflectionUtils.findMethod(value.getClass(), "verify");
         if (method != null) {
             ReflectionUtils.invokeMethod(method, value);
@@ -57,12 +60,15 @@ public class HibernateValidatorHelper {
         if (value == null) {
             return;
         }
+
+        // 基于注解的参数校验
         Collection<ConstraintViolation<V>> constraintViolations = parseConstraintViolation(value);
         if (CollectionUtils.isEmpty(constraintViolations)) {
             return;
         }
         List<String> messages = doVerifyAll(constraintViolations);
-        // 个性的参数校验
+
+        // 基于自定义‘verify’方法的参数校验
         Method method = ReflectionUtils.findMethod(value.getClass(), "verify");
         if (method != null) {
             try {
@@ -71,6 +77,7 @@ public class HibernateValidatorHelper {
                 messages.add(e.getMessage());
             }
         }
+
         if (CollectionUtils.isNotEmpty(messages)) {
             log.error("HibernateValidator Exception, Message={}, Params={}, Class={}", messages, JSON.toJSONString(value), value.getClass().getName());
             throw new ParamException(StringUtils.join(messages, "\n"));
